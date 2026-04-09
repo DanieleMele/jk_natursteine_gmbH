@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Datenschutz — JK Natursteine GmbH</title>
+<meta name="description" content="Datenschutzerklärung der JK Natursteine GmbH, Seuzach. Informationen zur Verarbeitung personenbezogener Daten gemäss Schweizer DSG und EU-DSGVO." />
+<meta name="robots" content="index,follow" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          stone: {
+            50:'#FAF8F5',100:'#F5F1EA',200:'#E8E1D4',300:'#D4C9B5',
+            400:'#A89680',500:'#8B6F47',600:'#6E5636',700:'#524029',
+            800:'#2B2620',900:'#1C1917',
+          },
+          bronze: { DEFAULT:'#8B6F47', light:'#A8895F', dark:'#6E5636' },
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"','Georgia','serif'],
+          sans:    ['Inter','system-ui','sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --bronze:#8B6F47; --bronze-dark:#6E5636; --basalt:#1C1917;
+    --cream:#FAF8F5; --limestone:#F5F1EA;
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --shadow-card:
+      0 1px 2px rgba(28,25,23,0.04),
+      0 6px 16px rgba(139,111,71,0.08),
+      0 18px 40px rgba(139,111,71,0.06);
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--basalt);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-display { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; }
+  h1,h2,h3 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; }
+  h1 { letter-spacing:-0.035em; line-height:1.02; }
+  h2 { letter-spacing:-0.025em; line-height:1.15; }
+  h3 { letter-spacing:-0.015em; line-height:1.25; }
+
+  .eyebrow {
+    font-family:'Inter',sans-serif;
+    font-size:0.72rem; font-weight:500;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--bronze);
+  }
+  .divider-line {
+    display:inline-block; width:48px; height:1px;
+    background:var(--bronze); vertical-align:middle; margin-right:14px;
+  }
+
+  .bg-stone-field {
+    background-color:var(--cream);
+    background-image:
+      radial-gradient(at 15% 5%,  rgba(139,111,71,0.10) 0px, transparent 45%),
+      radial-gradient(at 85% 0%,  rgba(139,111,71,0.05) 0px, transparent 50%);
+  }
+  .grain::before {
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.43  0 0 0 0 0.28  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity:0.06; mix-blend-mode:multiply;
+  }
+
+  .nav-link {
+    position:relative; padding:6px 0;
+    transition: color 200ms var(--ease-smooth);
+  }
+  .nav-link::after {
+    content:""; position:absolute; left:0; bottom:0; width:100%; height:1px;
+    background:var(--bronze); transform:scaleX(0); transform-origin:right;
+    transition:transform 400ms var(--ease-smooth);
+  }
+  .nav-link:hover { color:var(--bronze-dark); }
+  .nav-link:hover::after { transform:scaleX(1); transform-origin:left; }
+  .nav-link:focus-visible { outline:2px solid var(--bronze); outline-offset:4px; border-radius:2px; }
+
+  .btn {
+    display:inline-flex; align-items:center; gap:0.6rem;
+    padding:0.85rem 1.5rem; font-weight:500; font-size:0.9rem;
+    letter-spacing:0.02em; border-radius:999px;
+    transition: transform 260ms var(--ease-spring),
+                box-shadow 260ms var(--ease-smooth),
+                background-color 260ms var(--ease-smooth);
+  }
+  .btn-ghost {
+    background:transparent; color:var(--basalt);
+    border:1px solid rgba(28,25,23,0.2);
+  }
+  .btn-ghost:hover {
+    background:rgba(28,25,23,0.04); border-color:var(--bronze);
+    color:var(--bronze-dark); transform:translateY(-2px);
+  }
+  .btn-ghost:focus-visible { outline:2px solid var(--bronze); outline-offset:3px; }
+
+  /* ——— Prose layout for legal text ——— */
+  .prose-legal { max-width: 70ch; }
+  .prose-legal h2 {
+    font-size: 1.85rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.1rem;
+    color: var(--basalt);
+    position: relative;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(28,25,23,0.08);
+  }
+  .prose-legal h2:first-of-type { margin-top: 1rem; border-top: none; padding-top: 0; }
+  .prose-legal h2 .num {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bronze);
+    margin-bottom: 0.5rem;
+  }
+  .prose-legal h3 {
+    font-size: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: var(--basalt);
+  }
+  .prose-legal p {
+    color: rgba(28,25,23,0.82);
+    margin-bottom: 1.1rem;
+  }
+  .prose-legal a {
+    color: var(--bronze-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+    transition: color 200ms var(--ease-smooth);
+  }
+  .prose-legal a:hover { color: var(--basalt); }
+  .prose-legal ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0 1.4rem;
+  }
+  .prose-legal ul li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: rgba(28,25,23,0.82);
+  }
+  .prose-legal ul li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 0.75em;
+    width: 6px; height: 1px;
+    background: var(--bronze);
+  }
+  .prose-legal strong { color: var(--basalt); font-weight: 600; }
+
+  .info-card {
+    background: #fff;
+    border: 1px solid rgba(28,25,23,0.08);
+    border-radius: 4px;
+    padding: 1.5rem 1.75rem;
+    box-shadow: var(--shadow-card);
+  }
+
+  .toc-link {
+    display: block;
+    padding: 0.55rem 0;
+    font-size: 0.82rem;
+    color: rgba(28,25,23,0.55);
+    border-left: 1px solid rgba(28,25,23,0.1);
+    padding-left: 1rem;
+    transition: color 260ms var(--ease-smooth), border-color 260ms var(--ease-smooth);
+  }
+  .toc-link:hover {
+    color: var(--bronze-dark);
+    border-left-color: var(--bronze);
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[rgba(250,248,245,0.78)] border-b border-[rgba(28,25,23,0.06)]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-[76px] flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3 group" aria-label="JK Natursteine GmbH">
+      <div class="w-10 h-10 flex items-center justify-center rounded-full bg-stone-900 text-stone-50">
+        <span class="font-display text-xl leading-none">JK</span>
+      </div>
+      <div class="leading-tight">
+        <div class="font-display text-[1.15rem] text-stone-900">Natursteine</div>
+        <div class="text-[0.62rem] tracking-[0.25em] uppercase text-stone-500 -mt-0.5">GmbH · Seuzach</div>
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-10 text-sm text-stone-800">
+      <a href="index.html#about"     class="nav-link">Über uns</a>
+      <a href="index.html#services"  class="nav-link">Leistungen</a>
+      <a href="index.html#materials" class="nav-link">Materialien</a>
+      <a href="index.html#contact"   class="nav-link">Kontakt</a>
+    </nav>
+
+    <a href="index.html" class="btn btn-ghost hidden md:inline-flex">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Zurück
+    </a>
+  </div>
+</header>
+
+<main class="pt-[76px]">
+
+<!-- HEADER -->
+<section class="relative bg-stone-field grain overflow-hidden">
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 lg:pt-28 pb-16 lg:pb-20">
+    <div class="flex items-center gap-3 mb-6">
+      <span class="divider-line"></span>
+      <span class="eyebrow">Rechtliches</span>
+    </div>
+    <h1 class="text-4xl sm:text-5xl lg:text-[4.5rem] text-stone-900 max-w-3xl">
+      Datenschutz<em class="italic text-bronze">erklärung.</em>
+    </h1>
+    <p class="mt-6 max-w-2xl text-stone-700/80">
+      Wir nehmen den Schutz Ihrer persönlichen Daten ernst. Diese Erklärung informiert Sie darüber,
+      welche Daten wir beim Besuch dieser Website verarbeiten, zu welchem Zweck und welche Rechte Ihnen zustehen.
+    </p>
+    <p class="mt-4 text-xs tracking-widest uppercase text-stone-500">
+      Stand: April 2026
+    </p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="relative py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-16">
+
+      <!-- TOC -->
+      <aside class="lg:col-span-3 lg:sticky lg:top-[100px] self-start hidden lg:block">
+        <div class="eyebrow mb-4">Inhalt</div>
+        <nav class="flex flex-col">
+          <a href="#verantwortlich" class="toc-link">01 · Verantwortliche Stelle</a>
+          <a href="#grundlagen"     class="toc-link">02 · Rechtliche Grundlagen</a>
+          <a href="#hosting"        class="toc-link">03 · Hosting (Vercel)</a>
+          <a href="#logs"           class="toc-link">04 · Server-Logfiles</a>
+          <a href="#analytics"      class="toc-link">05 · Vercel Web Analytics</a>
+          <a href="#speed"          class="toc-link">06 · Vercel Speed Insights</a>
+          <a href="#kontakt"        class="toc-link">07 · Kontaktformular</a>
+          <a href="#cookies"        class="toc-link">08 · Cookies</a>
+          <a href="#rechte"         class="toc-link">09 · Ihre Rechte</a>
+          <a href="#aenderungen"    class="toc-link">10 · Änderungen</a>
+        </nav>
+      </aside>
+
+      <!-- Body -->
+      <article class="lg:col-span-9 prose-legal">
+
+        <h2 id="verantwortlich"><span class="num">01</span>Verantwortliche Stelle</h2>
+        <p>
+          Verantwortlich für die Datenbearbeitung auf dieser Website im Sinne des schweizerischen
+          Datenschutzgesetzes (DSG) sowie der EU-Datenschutz-Grundverordnung (DSGVO) ist:
+        </p>
+        <div class="info-card my-6 not-prose">
+          <div class="font-display text-xl text-stone-900">JK Natursteine GmbH</div>
+          <div class="text-sm text-stone-600 mt-2 space-y-0.5">
+            <div>Jimmy Palacios, Geschäftsführer</div>
+            <div>8472 Seuzach</div>
+            <div>Zürich, Schweiz</div>
+            <div class="pt-2">E-Mail: info@jk-natursteine.ch</div>
+          </div>
+        </div>
+
+        <h2 id="grundlagen"><span class="num">02</span>Rechtliche Grundlagen</h2>
+        <p>
+          Die Bearbeitung personenbezogener Daten erfolgt auf Grundlage des revidierten Schweizer
+          Bundesgesetzes über den Datenschutz (<strong>revDSG</strong>) sowie, soweit anwendbar,
+          der EU-Datenschutz-Grundverordnung (<strong>DSGVO</strong>). Wir verarbeiten Personendaten
+          nur, soweit dies für den jeweiligen Zweck erforderlich ist, und stützen uns dabei auf
+          ein berechtigtes Interesse, Ihre Einwilligung oder die Erfüllung eines Vertrags.
+        </p>
+
+        <h2 id="hosting"><span class="num">03</span>Hosting durch Vercel</h2>
+        <p>
+          Diese Website wird gehostet bei <strong>Vercel Inc.</strong>, 340 S Lemon Ave #4133,
+          Walnut, CA 91789, USA. Beim Besuch der Website werden technisch notwendige Daten
+          (z.&nbsp;B. IP-Adresse, Zeitpunkt des Zugriffs, aufgerufene Seite, User-Agent) an Vercel
+          übermittelt und dort kurzzeitig verarbeitet, um die Auslieferung der Inhalte zu ermöglichen
+          und die Sicherheit des Dienstes zu gewährleisten.
+        </p>
+        <p>
+          Die Übermittlung in die USA erfolgt auf Grundlage der Standardvertragsklauseln sowie
+          zusätzlicher Schutzmassnahmen. Weitere Informationen finden Sie in der
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Vercel</a>.
+        </p>
+
+        <h2 id="logs"><span class="num">04</span>Server-Logfiles</h2>
+        <p>
+          Unser Hosting-Anbieter erhebt und speichert automatisch Informationen in Server-Logfiles,
+          die Ihr Browser übermittelt. Diese Daten werden nicht mit anderen Datenquellen zusammengeführt
+          und dienen ausschliesslich der technischen Bereitstellung, Fehleranalyse und Abwehr von Angriffen:
+        </p>
+        <ul>
+          <li>Anonymisierte IP-Adresse</li>
+          <li>Datum und Uhrzeit der Anfrage</li>
+          <li>Referrer-URL</li>
+          <li>Browsertyp und -version</li>
+          <li>Verwendetes Betriebssystem</li>
+        </ul>
+
+        <h2 id="analytics"><span class="num">05</span>Vercel Web Analytics</h2>
+        <p>
+          Wir verwenden <strong>Vercel Web Analytics</strong>, einen datenschutzfreundlichen
+          Analysedienst von Vercel Inc. Dieser Dienst erhebt aggregierte, anonymisierte Daten über
+          die Nutzung unserer Website, um uns zu helfen, Inhalte und Performance zu verbessern.
+        </p>
+        <p>Vercel Web Analytics ist bewusst so gestaltet, dass:</p>
+        <ul>
+          <li><strong>keine Cookies</strong> gesetzt werden,</li>
+          <li><strong>keine personenbezogenen Daten</strong> (wie IP-Adressen im Klartext) dauerhaft gespeichert werden,</li>
+          <li><strong>kein Cross-Site-Tracking</strong> und kein Profiling einzelner Besucher stattfindet,</li>
+          <li>Besucher über einen täglich rotierenden, anonymen Hash erkannt werden, der nicht zurückverfolgbar ist.</li>
+        </ul>
+        <p>
+          Erfasst werden lediglich aggregierte Kennzahlen wie Seitenaufrufe, ungefähre geografische
+          Region (Land), verweisende Seite, Gerätetyp und Browser. Rechtsgrundlage ist unser berechtigtes
+          Interesse an einer statistischen Auswertung des Nutzungsverhaltens (Art. 6 Abs. 1 lit. f DSGVO
+          bzw. Art. 31 Abs. 1 revDSG). Details:
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel Analytics Privacy Policy</a>.
+        </p>
+
+        <h2 id="speed"><span class="num">06</span>Vercel Speed Insights</h2>
+        <p>
+          Zusätzlich setzen wir <strong>Vercel Speed Insights</strong> ein, um die technische
+          Performance (sogenannte Core Web Vitals wie Ladezeit, Interaktivität und visuelle Stabilität)
+          der Website zu messen. Auch dieser Dienst arbeitet <strong>cookiefrei</strong> und erhebt
+          keine personenbezogenen Daten. Gesammelt werden lediglich anonymisierte technische Messwerte
+          Ihres Browsers.
+        </p>
+        <p>
+          Rechtsgrundlage ist unser berechtigtes Interesse an der Bereitstellung einer performanten,
+          stabilen Website (Art. 6 Abs. 1 lit. f DSGVO bzw. Art. 31 Abs. 1 revDSG).
+        </p>
+
+        <h2 id="kontakt"><span class="num">07</span>Kontaktformular &amp; E-Mail-Kontakt</h2>
+        <p>
+          Wenn Sie uns über das Kontaktformular oder per E-Mail Anfragen zukommen lassen, werden
+          Ihre Angaben (Name, E-Mail-Adresse, Telefonnummer, Projektbeschreibung) zum Zweck der
+          Bearbeitung der Anfrage und für mögliche Anschlussfragen bei uns gespeichert.
+        </p>
+        <p>
+          Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Bearbeitung erfolgt auf
+          Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) und zur Erfüllung
+          vorvertraglicher Massnahmen (Art. 6 Abs. 1 lit. b DSGVO). Ihre Daten werden nach
+          Abschluss der Bearbeitung gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten
+          entgegenstehen.
+        </p>
+
+        <h2 id="cookies"><span class="num">08</span>Cookies</h2>
+        <p>
+          Diese Website verwendet <strong>keine Tracking- oder Marketing-Cookies</strong>.
+          Die eingesetzten Analysedienste (Vercel Web Analytics, Vercel Speed Insights) funktionieren
+          vollständig cookiefrei. Es kann lediglich zu technisch notwendigen Session-Cookies des
+          Hosting-Anbieters kommen, die ausschliesslich dem Betrieb der Website dienen.
+        </p>
+
+        <h2 id="rechte"><span class="num">09</span>Ihre Rechte</h2>
+        <p>Sie haben jederzeit das Recht auf:</p>
+        <ul>
+          <li><strong>Auskunft</strong> über die bei uns gespeicherten personenbezogenen Daten</li>
+          <li><strong>Berichtigung</strong> unrichtiger oder unvollständiger Daten</li>
+          <li><strong>Löschung</strong> Ihrer Daten, soweit keine Aufbewahrungspflicht besteht</li>
+          <li><strong>Einschränkung</strong> der Verarbeitung</li>
+          <li><strong>Datenübertragbarkeit</strong> in einem gängigen Format</li>
+          <li><strong>Widerspruch</strong> gegen die Verarbeitung</li>
+          <li><strong>Widerruf</strong> einer erteilten Einwilligung mit Wirkung für die Zukunft</li>
+        </ul>
+        <p>
+          Zur Ausübung Ihrer Rechte genügt eine formlose Nachricht an
+          <a href="mailto:info@jk-natursteine.ch">info@jk-natursteine.ch</a>. Darüber hinaus
+          steht Ihnen ein Beschwerderecht beim Eidgenössischen Datenschutz- und
+          Öffentlichkeitsbeauftragten (EDÖB) bzw. bei einer zuständigen EU-Aufsichtsbehörde zu.
+        </p>
+
+        <h2 id="aenderungen"><span class="num">10</span>Änderungen dieser Erklärung</h2>
+        <p>
+          Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
+          aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen
+          umzusetzen. Für Ihren erneuten Besuch gilt dann die neue Fassung.
+        </p>
+
+        <div class="mt-16 pt-10 border-t border-[rgba(28,25,23,0.08)] flex flex-wrap items-center justify-between gap-4">
+          <p class="text-sm text-stone-500">
+            Fragen zum Datenschutz? Schreiben Sie uns an
+            <a href="mailto:info@jk-natursteine.ch">info@jk-natursteine.ch</a>.
+          </p>
+          <a href="index.html" class="btn btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Zurück zur Startseite
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER (compact) -->
+<footer class="bg-stone-900 text-stone-300 py-12">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 flex flex-wrap items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 flex items-center justify-center rounded-full border border-bronze text-stone-50">
+        <span class="font-display text-lg leading-none">JK</span>
+      </div>
+      <div class="leading-tight">
+        <div class="font-display text-stone-50">Natursteine GmbH</div>
+        <div class="text-[0.62rem] tracking-[0.25em] uppercase text-stone-500 -mt-0.5">Seit 2021 · Seuzach</div>
+      </div>
+    </div>
+    <div class="text-xs text-stone-500">
+      © <span id="year">2026</span> JK Natursteine GmbH ·
+      <a href="index.html" class="hover:text-bronze transition-colors">Startseite</a> ·
+      <a href="#" class="hover:text-bronze transition-colors">Impressum</a> ·
+      <a href="datenschutz.html" class="hover:text-bronze transition-colors">Datenschutz</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- Vercel Web Analytics -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- Vercel Speed Insights -->
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>

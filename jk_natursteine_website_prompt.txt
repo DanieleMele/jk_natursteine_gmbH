@@ -1,0 +1,108 @@
+====================================================
+WEBSITE CREATION PROMPT — JK Natursteine GmbH
+====================================================
+Source: LinkedIn Profile (https://www.linkedin.com/in/jk-natursteine-gmbh-4506b722b/)
+Extracted: 2026-04-09
+
+----------------------------------------------------
+COMPANY OVERVIEW
+----------------------------------------------------
+Company Name:   JK - Natursteine GmbH
+CEO / Contact:  Jimmy Palacios (Geschäftsführer)
+Location:       Seuzach, Zürich, Switzerland
+Founded:        2021
+
+----------------------------------------------------
+ABOUT / DESCRIPTION (original German)
+----------------------------------------------------
+"Die JK Natursteine GmbH ist ein in 2021 von einem langjährig erfahrenen Team von
+Fachspezialisten gegründetes Start-Up. Unsere Leidenschaft und Kernkompetenz liegt
+in der Lieferung und Montage von Küchenabdeckungen aus Keramik, Granit und anderem
+Naturstein. Hauptzielgruppe sind anspruchsvolle Bauherren, Haus- uns
+Stockwerkeigentümer, bei denen Präzision und Qualität - genau wie bei uns selbst -
+höchsten Stellenwert geniessen."
+
+----------------------------------------------------
+ABOUT / DESCRIPTION (English translation)
+----------------------------------------------------
+"JK Natursteine GmbH is a start-up founded in 2021 by a team of long-experienced
+specialists. Our passion and core competency lies in the delivery and installation
+of kitchen countertops made from ceramic, granite, and other natural stone.
+Our primary target audience is discerning builders, homeowners, and apartment owners
+for whom precision and quality — just as for us — are of the highest priority."
+
+----------------------------------------------------
+SERVICES
+----------------------------------------------------
+- Delivery and installation of kitchen countertops
+  - Materials: Ceramic, Granite, Natural Stone (Naturstein)
+- Interior Architecture & Space Design (Innenarchitektur & Raumgestaltung)
+
+----------------------------------------------------
+TARGET AUDIENCE
+----------------------------------------------------
+- Demanding/high-end homeowners (Bauherren)
+- House and apartment owners (Haus- und Stockwerkeigentümer)
+- Clients who prioritize precision and quality
+
+----------------------------------------------------
+KEY VALUES / BRAND PILLARS
+----------------------------------------------------
+- Precision (Präzision)
+- Quality (Qualität)
+- Expert craftsmanship (Fachspezialisten)
+- Passion for natural stone
+
+----------------------------------------------------
+SOCIAL PROOF
+----------------------------------------------------
+- 68 Followers on LinkedIn
+- 62 Connections
+
+----------------------------------------------------
+CONTACT / LINKS
+----------------------------------------------------
+LinkedIn: https://www.linkedin.com/in/jk-natursteine-gmbh-4506b722b/
+Location: Seuzach, Zürich, Switzerland
+
+----------------------------------------------------
+WEBSITE CREATION INSTRUCTIONS
+----------------------------------------------------
+Using the information above, create a professional, modern website for JK Natursteine GmbH.
+
+The website should include the following sections:
+
+1. HERO SECTION
+   - Strong headline emphasizing quality natural stone craftsmanship
+   - Subheading referencing kitchen countertops in ceramic, granite & natural stone
+   - Call-to-action button (e.g. "Request a Quote" / "Offerte anfordern")
+   - Background: high-quality stone/kitchen imagery
+
+2. ABOUT US
+   - Company story: founded 2021, expert team, Swiss quality
+   - Emphasize passion, precision and craftsmanship
+   - Mention target audience (homeowners, builders)
+
+3. SERVICES
+   - Kitchen countertops: Ceramic, Granite, Natural Stone
+   - Delivery & professional installation
+   - Interior architecture & space design consultation
+
+4. WHY CHOOSE US
+   - Long industry experience
+   - Precision and quality as top priorities
+   - Personalized service for demanding clients
+
+5. MATERIALS / GALLERY
+   - Showcase ceramic, granite and natural stone options
+   - Before/after or finished project photos (placeholder if no images)
+
+6. CONTACT SECTION
+   - Location: Seuzach, Zürich, Switzerland
+   - Contact form
+   - CEO: Jimmy Palacios
+
+LANGUAGE: The website should be in German (Swiss market), with optional English toggle.
+TONE: Premium, trustworthy, craftsmanship-focused.
+STYLE: Clean, modern, minimal — letting the stone materials speak visually.
+====================================================

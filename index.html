@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>JK Natursteine GmbH — Küchenabdeckungen aus Naturstein, Keramik & Granit</title>
+<meta name="description" content="JK Natursteine GmbH aus Seuzach, Zürich. Lieferung und Montage massgefertigter Küchenabdeckungen aus Keramik, Granit und Naturstein. Präzision, Qualität, Schweizer Handwerk." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          stone: {
+            50:  '#FAF8F5',
+            100: '#F5F1EA',
+            200: '#E8E1D4',
+            300: '#D4C9B5',
+            400: '#A89680',
+            500: '#8B6F47',
+            600: '#6E5636',
+            700: '#524029',
+            800: '#2B2620',
+            900: '#1C1917',
+          },
+          bronze: {
+            DEFAULT: '#8B6F47',
+            light:   '#A8895F',
+            dark:    '#6E5636',
+          },
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans:    ['Inter', 'system-ui', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  :root {
+    --bronze:      #8B6F47;
+    --bronze-dark: #6E5636;
+    --basalt:      #1C1917;
+    --limestone:   #F5F1EA;
+    --cream:       #FAF8F5;
+    --line:        rgba(28,25,23,0.08);
+
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    --shadow-card:
+      0 1px 2px rgba(28,25,23,0.04),
+      0 6px 16px rgba(139,111,71,0.08),
+      0 18px 40px rgba(139,111,71,0.06);
+
+    --shadow-floating:
+      0 2px 4px rgba(28,25,23,0.05),
+      0 12px 28px rgba(139,111,71,0.12),
+      0 28px 60px rgba(139,111,71,0.10);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--cream);
+    color: var(--basalt);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .font-display { font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 500; }
+
+  h1, h2, h3, .display { font-family: 'Cormorant Garamond', Georgia, serif; }
+  h1 { letter-spacing: -0.035em; line-height: 1.02; font-weight: 500; }
+  h2 { letter-spacing: -0.03em;  line-height: 1.08; font-weight: 500; }
+  h3 { letter-spacing: -0.02em;  line-height: 1.15; font-weight: 500; }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--bronze);
+  }
+
+  /* ——— Layered grain + gradient backdrop ——— */
+  .bg-stone-field {
+    background-color: var(--cream);
+    background-image:
+      radial-gradient(at 18% 8%,  rgba(139,111,71,0.12) 0px, transparent 45%),
+      radial-gradient(at 82% 12%, rgba(139,111,71,0.06) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(28,25,23,0.05) 0px, transparent 55%);
+  }
+  .bg-basalt-field {
+    background-color: #14120F;
+    background-image:
+      radial-gradient(at 15% 20%, rgba(139,111,71,0.22) 0px, transparent 50%),
+      radial-gradient(at 85% 75%, rgba(168,137,95,0.12) 0px, transparent 55%),
+      radial-gradient(at 50% 100%, rgba(0,0,0,0.4)     0px, transparent 60%);
+  }
+
+  .grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.43  0 0 0 0 0.28  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.08;
+    mix-blend-mode: multiply;
+  }
+
+  /* ——— Image treatment ——— */
+  .img-treat {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .img-treat > img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 900ms var(--ease-smooth);
+  }
+  .img-treat::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20,18,15,0.55) 0%, rgba(20,18,15,0) 55%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .img-treat::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: #8B6F47;
+    mix-blend-mode: multiply;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .img-treat:hover > img { transform: scale(1.04); }
+
+  /* ——— Buttons ——— */
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.95rem 1.6rem;
+    font-weight: 500;
+    font-size: 0.92rem;
+    letter-spacing: 0.02em;
+    border-radius: 999px;
+    transition: transform 260ms var(--ease-spring),
+                box-shadow 260ms var(--ease-smooth),
+                background-color 260ms var(--ease-smooth),
+                color 260ms var(--ease-smooth);
+    will-change: transform;
+  }
+  .btn-primary {
+    background: var(--basalt);
+    color: var(--cream);
+    box-shadow: var(--shadow-card);
+  }
+  .btn-primary:hover {
+    background: var(--bronze-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-floating);
+  }
+  .btn-primary:active { transform: translateY(0); }
+  .btn-primary:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--basalt);
+    border: 1px solid rgba(28,25,23,0.2);
+  }
+  .btn-ghost:hover {
+    background: rgba(28,25,23,0.04);
+    border-color: var(--bronze);
+    color: var(--bronze-dark);
+    transform: translateY(-2px);
+  }
+  .btn-ghost:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
+  .btn-ghost:active { transform: translateY(0); }
+
+  .btn-on-dark {
+    background: var(--cream);
+    color: var(--basalt);
+  }
+  .btn-on-dark:hover { background: #fff; transform: translateY(-2px); }
+
+  /* ——— Section divider ——— */
+  .divider-line {
+    display: inline-block;
+    width: 48px; height: 1px;
+    background: var(--bronze);
+    vertical-align: middle;
+    margin-right: 14px;
+  }
+
+  /* ——— Card hover ——— */
+  .card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    transition: transform 400ms var(--ease-smooth),
+                box-shadow 400ms var(--ease-smooth),
+                border-color 400ms var(--ease-smooth);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-floating);
+    border-color: rgba(139,111,71,0.35);
+  }
+
+  /* ——— Nav link underline ——— */
+  .nav-link {
+    position: relative;
+    padding: 6px 0;
+    transition: color 200ms var(--ease-smooth);
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--bronze);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 400ms var(--ease-smooth);
+  }
+  .nav-link:hover { color: var(--bronze-dark); }
+  .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+  .nav-link:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; border-radius: 2px; }
+
+  /* ——— Lang toggle ——— */
+  .lang-toggle button {
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: rgba(28,25,23,0.5);
+    transition: color 200ms var(--ease-smooth);
+  }
+  .lang-toggle button.active { color: var(--basalt); }
+  .lang-toggle button:hover { color: var(--bronze-dark); }
+
+  /* ——— Inputs ——— */
+  .field {
+    width: 100%;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--basalt);
+    transition: border-color 240ms var(--ease-smooth), box-shadow 240ms var(--ease-smooth);
+  }
+  .field::placeholder { color: rgba(28,25,23,0.4); }
+  .field:focus {
+    outline: none;
+    border-color: var(--bronze);
+    box-shadow: 0 0 0 3px rgba(139,111,71,0.12);
+  }
+
+  /* ——— Reveal on scroll ——— */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 900ms var(--ease-smooth), transform 900ms var(--ease-smooth);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ——— Vein SVG accent ——— */
+  .vein {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.18;
+  }
+
+  /* ——— Marquee of values ——— */
+  .marquee {
+    display: flex;
+    gap: 3.5rem;
+    animation: marq 38s linear infinite;
+    white-space: nowrap;
+  }
+  @keyframes marq {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* ——— Hero num ——— */
+  .hero-num { font-variant-numeric: tabular-nums; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body class="antialiased">
+
+<!-- ═══════════════════════════════════════════ NAV ═══════════════════════════════════════════ -->
+<header class="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[rgba(250,248,245,0.78)] border-b border-[rgba(28,25,23,0.06)]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-[76px] flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#top" class="flex items-center gap-3 group" aria-label="JK Natursteine GmbH">
+      <div class="relative w-10 h-10 flex items-center justify-center rounded-full bg-stone-900 text-stone-50 transition-transform duration-500" style="transition-timing-function: var(--ease-spring);">
+        <span class="font-display text-xl leading-none">JK</span>
+        <span class="absolute -inset-px rounded-full border border-bronze opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+      </div>
+      <div class="leading-tight">
+        <div class="font-display text-[1.15rem] text-stone-900">Natursteine</div>
+        <div class="text-[0.62rem] tracking-[0.25em] uppercase text-stone-500 -mt-0.5">GmbH · Seuzach</div>
+      </div>
+    </a>
+
+    <!-- Nav -->
+    <nav class="hidden lg:flex items-center gap-10 text-sm text-stone-800">
+      <a href="#about"     class="nav-link" data-de="Über uns"     data-en="About">Über uns</a>
+      <a href="#services"  class="nav-link" data-de="Leistungen"   data-en="Services">Leistungen</a>
+      <a href="#materials" class="nav-link" data-de="Materialien"  data-en="Materials">Materialien</a>
+      <a href="#why"       class="nav-link" data-de="Warum wir"    data-en="Why us">Warum wir</a>
+      <a href="#contact"   class="nav-link" data-de="Kontakt"      data-en="Contact">Kontakt</a>
+    </nav>
+
+    <div class="flex items-center gap-5">
+      <div class="lang-toggle hidden sm:flex items-center gap-1 border-l border-[rgba(28,25,23,0.12)] pl-5">
+        <button data-lang="de" class="active">DE</button>
+        <span class="text-stone-300">/</span>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="btn btn-primary hidden md:inline-flex" data-de="Offerte anfordern" data-en="Request a Quote">
+        Offerte anfordern
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═══════════════════════════════════════════ HERO ═══════════════════════════════════════════ -->
+<section class="relative pt-[76px] overflow-hidden bg-stone-field grain">
+  <!-- Vein accents -->
+  <svg class="vein hidden lg:block" style="top:120px;right:-60px;width:520px;" viewBox="0 0 520 520" fill="none">
+    <path d="M20 260 Q160 100 260 260 T500 260" stroke="#8B6F47" stroke-width="1"/>
+    <path d="M60 300 Q180 180 280 320 T480 300" stroke="#8B6F47" stroke-width="0.6"/>
+    <path d="M40 220 Q200 120 300 220 T520 200" stroke="#8B6F47" stroke-width="0.4"/>
+  </svg>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 lg:pt-28 pb-24 lg:pb-32">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+
+      <div class="lg:col-span-7 reveal">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="divider-line"></span>
+          <span class="eyebrow" data-de="Seuzach · Zürich · Schweiz" data-en="Seuzach · Zurich · Switzerland">Seuzach · Zürich · Schweiz</span>
+        </div>
+
+        <h1 class="text-[2.6rem] sm:text-5xl lg:text-[5.4rem] text-stone-900">
+          <span data-de="Der Stein," data-en="The stone,">Der Stein,</span><br/>
+          <em class="italic text-bronze" data-de="auf dem Sie kochen." data-en="you cook upon.">auf dem Sie kochen.</em>
+        </h1>
+
+        <p class="mt-8 max-w-xl text-[1.05rem] text-stone-800/80 leading-[1.8]"
+           data-de="Massgefertigte Küchenabdeckungen aus Keramik, Granit und Naturstein — geliefert und montiert von einem Team, das Präzision und Qualität seit Jahrzehnten lebt."
+           data-en="Bespoke kitchen countertops in ceramic, granite and natural stone — delivered and installed by a team that has lived precision and quality for decades.">
+          Massgefertigte Küchenabdeckungen aus Keramik, Granit und Naturstein — geliefert und montiert von einem Team, das Präzision und Qualität seit Jahrzehnten lebt.
+        </p>
+
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+          <a href="#contact" class="btn btn-primary" data-de="Offerte anfordern" data-en="Request a Quote">
+            Offerte anfordern
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#materials" class="btn btn-ghost" data-de="Materialien entdecken" data-en="Explore materials">
+            Materialien entdecken
+          </a>
+        </div>
+
+        <!-- Hero stats -->
+        <dl class="mt-16 grid grid-cols-3 gap-6 max-w-lg border-t border-[rgba(28,25,23,0.08)] pt-8">
+          <div>
+            <dt class="eyebrow" data-de="Seit" data-en="Since">Seit</dt>
+            <dd class="font-display hero-num text-4xl text-stone-900 mt-1">2021</dd>
+          </div>
+          <div>
+            <dt class="eyebrow" data-de="Spezialisten" data-en="Specialists">Spezialisten</dt>
+            <dd class="font-display hero-num text-4xl text-stone-900 mt-1">25<span class="text-bronze">+</span></dd>
+          </div>
+          <div>
+            <dt class="eyebrow" data-de="Jahre Erfahrung" data-en="Years experience">Jahre Erfahrung</dt>
+            <dd class="font-display hero-num text-4xl text-stone-900 mt-1">100<span class="text-bronze">+</span></dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Hero image composition -->
+      <div class="lg:col-span-5 relative reveal">
+        <div class="img-treat rounded-sm shadow-2xl" style="box-shadow: var(--shadow-floating); aspect-ratio: 4/5;">
+          <img src="https://placehold.co/900x1125/2b2620/f5f1ea?text=Granit+·+Küche" alt="Granit-Küchenabdeckung" />
+        </div>
+
+        <!-- Floating sub-image -->
+        <div class="hidden sm:block absolute -bottom-10 -left-6 lg:-left-14 w-48 lg:w-56 img-treat rounded-sm" style="box-shadow: var(--shadow-floating); aspect-ratio: 1;">
+          <img src="https://placehold.co/480x480/8b6f47/faf8f5?text=Keramik" alt="Keramik Detail" />
+        </div>
+
+        <!-- Small caption card -->
+        <div class="hidden md:flex absolute -top-6 -right-4 lg:-right-10 bg-white rounded-sm px-5 py-4 items-center gap-3 border border-[rgba(28,25,23,0.08)]" style="box-shadow: var(--shadow-card);">
+          <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-bronze">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
+          </div>
+          <div class="leading-tight">
+            <div class="text-xs text-stone-500 uppercase tracking-wider" data-de="Handwerk" data-en="Craftsmanship">Handwerk</div>
+            <div class="font-display text-lg text-stone-900" data-de="Schweizer Präzision" data-en="Swiss precision">Schweizer Präzision</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Values marquee -->
+  <div class="relative border-y border-[rgba(28,25,23,0.08)] bg-[rgba(245,241,234,0.6)] overflow-hidden">
+    <div class="marquee py-5 font-display text-stone-700 text-2xl lg:text-3xl">
+      <div class="flex items-center gap-14 shrink-0">
+        <span>Präzision</span><span class="text-bronze">◆</span>
+        <span>Qualität</span><span class="text-bronze">◆</span>
+        <span>Leidenschaft</span><span class="text-bronze">◆</span>
+        <span>Naturstein</span><span class="text-bronze">◆</span>
+        <span>Keramik</span><span class="text-bronze">◆</span>
+        <span>Granit</span><span class="text-bronze">◆</span>
+        <span>Schweizer Handwerk</span><span class="text-bronze">◆</span>
+      </div>
+      <div class="flex items-center gap-14 shrink-0" aria-hidden="true">
+        <span>Präzision</span><span class="text-bronze">◆</span>
+        <span>Qualität</span><span class="text-bronze">◆</span>
+        <span>Leidenschaft</span><span class="text-bronze">◆</span>
+        <span>Naturstein</span><span class="text-bronze">◆</span>
+        <span>Keramik</span><span class="text-bronze">◆</span>
+        <span>Granit</span><span class="text-bronze">◆</span>
+        <span>Schweizer Handwerk</span><span class="text-bronze">◆</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ ABOUT ═══════════════════════════════════════════ -->
+<section id="about" class="relative py-28 lg:py-40 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-16 lg:gap-20">
+
+      <div class="lg:col-span-5 reveal">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="divider-line"></span>
+          <span class="eyebrow" data-de="Über uns" data-en="About us">Über uns</span>
+        </div>
+        <h2 class="text-4xl lg:text-6xl text-stone-900">
+          <span data-de="Fachspezialisten" data-en="Specialists">Fachspezialisten</span><br/>
+          <em class="italic text-bronze" data-de="mit Leidenschaft." data-en="with passion.">mit Leidenschaft.</em>
+        </h2>
+
+        <!-- Stacked images -->
+        <div class="relative mt-12 hidden lg:block">
+          <div class="img-treat rounded-sm w-4/5" style="box-shadow: var(--shadow-card); aspect-ratio: 4/5;">
+            <img src="https://placehold.co/800x1000/524029/f5f1ea?text=Werkstatt" alt="Werkstatt" />
+          </div>
+          <div class="img-treat rounded-sm absolute top-24 right-0 w-3/5" style="box-shadow: var(--shadow-floating); aspect-ratio: 4/5;">
+            <img src="https://placehold.co/600x750/8b6f47/ffffff?text=Montage" alt="Montage" />
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 lg:pt-12 reveal">
+        <p class="font-display text-2xl lg:text-[1.9rem] text-stone-800 leading-[1.45]"
+           data-de="Die JK Natursteine GmbH ist ein in 2021 gegründetes Start-Up, getragen von einem langjährig erfahrenen Team von Fachspezialisten."
+           data-en="JK Natursteine GmbH is a start-up founded in 2021, built on a team of long-experienced specialists.">
+          Die JK Natursteine GmbH ist ein in 2021 gegründetes Start-Up, getragen von einem langjährig erfahrenen Team von Fachspezialisten.
+        </p>
+
+        <p class="mt-8 text-stone-700/90 max-w-2xl"
+           data-de="Unsere Leidenschaft und Kernkompetenz liegt in der Lieferung und Montage von Küchenabdeckungen aus Keramik, Granit und anderem Naturstein. Jede Platte ist ein Unikat — und genau so behandeln wir sie: mit Sorgfalt, Präzision und dem Respekt, den ein über Jahrmillionen gewachsenes Material verdient."
+           data-en="Our passion and core competency lies in the delivery and installation of kitchen countertops in ceramic, granite and natural stone. Every slab is unique — and we treat it that way: with care, precision and the respect a material shaped over millions of years deserves.">
+          Unsere Leidenschaft und Kernkompetenz liegt in der Lieferung und Montage von Küchenabdeckungen aus Keramik, Granit und anderem Naturstein. Jede Platte ist ein Unikat — und genau so behandeln wir sie: mit Sorgfalt, Präzision und dem Respekt, den ein über Jahrmillionen gewachsenes Material verdient.
+        </p>
+
+        <p class="mt-6 text-stone-700/90 max-w-2xl"
+           data-de="Hauptzielgruppe sind anspruchsvolle Bauherren, Haus- und Stockwerkeigentümer, bei denen Präzision und Qualität — genau wie bei uns selbst — höchsten Stellenwert geniessen."
+           data-en="Our primary clients are discerning builders, homeowners and apartment owners for whom precision and quality — just as for us — are of the highest priority.">
+          Hauptzielgruppe sind anspruchsvolle Bauherren, Haus- und Stockwerkeigentümer, bei denen Präzision und Qualität — genau wie bei uns selbst — höchsten Stellenwert geniessen.
+        </p>
+
+        <!-- CEO Card -->
+        <div class="mt-12 flex items-center gap-5 p-6 card rounded-sm max-w-md">
+          <div class="w-16 h-16 rounded-full bg-stone-200 flex items-center justify-center font-display text-2xl text-stone-900 shrink-0">JP</div>
+          <div>
+            <div class="font-display text-xl text-stone-900">Jimmy Palacios</div>
+            <div class="text-sm text-stone-500" data-de="Geschäftsführer" data-en="CEO / Managing Director">Geschäftsführer</div>
+          </div>
+          <svg class="ml-auto text-bronze" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ SERVICES ═══════════════════════════════════════════ -->
+<section id="services" class="relative py-28 lg:py-40 bg-basalt-field grain text-stone-50 overflow-hidden">
+  <svg class="vein absolute" style="top:0;left:0;width:600px;opacity:0.1;" viewBox="0 0 600 600" fill="none">
+    <path d="M0 200 Q150 80 300 200 T600 180" stroke="#A8895F" stroke-width="1"/>
+    <path d="M0 280 Q200 180 350 300 T600 260" stroke="#A8895F" stroke-width="0.6"/>
+  </svg>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-end mb-20 reveal">
+      <div class="lg:col-span-7">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="divider-line"></span>
+          <span class="eyebrow" data-de="Leistungen" data-en="Services">Leistungen</span>
+        </div>
+        <h2 class="text-4xl lg:text-6xl text-stone-50">
+          <span data-de="Vom Rohblock" data-en="From raw block">Vom Rohblock</span><br/>
+          <em class="italic text-bronze-light" data-de="bis zur fertigen Küche." data-en="to the finished kitchen.">bis zur fertigen Küche.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-5 text-stone-300 max-w-md"
+           data-de="Drei Leistungen, ein Anspruch: Jedes Detail — vom ersten Mass bis zur letzten Fuge — trägt unsere Handschrift."
+           data-en="Three services, one standard: every detail — from first measurement to final joint — bears our signature.">
+        Drei Leistungen, ein Anspruch: Jedes Detail — vom ersten Mass bis zur letzten Fuge — trägt unsere Handschrift.
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+      <!-- Service 1 -->
+      <article class="group relative overflow-hidden rounded-sm border border-stone-700/40 bg-stone-900/40 backdrop-blur-sm p-8 lg:p-10 transition-transform duration-500 hover:-translate-y-1 reveal" style="transition-timing-function: var(--ease-smooth);">
+        <div class="flex items-start justify-between mb-20">
+          <div class="text-xs tracking-[0.2em] text-stone-400 uppercase">01</div>
+          <div class="w-14 h-14 rounded-full border border-bronze/40 flex items-center justify-center text-bronze-light">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="8" width="18" height="10" rx="1"/>
+              <path d="M7 8V5a1 1 0 011-1h8a1 1 0 011 1v3M3 13h18"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="font-display text-3xl text-stone-50 mb-4" data-de="Küchenabdeckungen" data-en="Kitchen countertops">Küchenabdeckungen</h3>
+        <p class="text-stone-300 text-[0.95rem] leading-[1.8]"
+           data-de="Massgefertigte Abdeckungen aus Keramik, Granit und Naturstein. Aufmass, Fertigung und Montage aus einer Hand."
+           data-en="Bespoke countertops in ceramic, granite and natural stone. Measuring, fabrication and installation from a single source.">
+          Massgefertigte Abdeckungen aus Keramik, Granit und Naturstein. Aufmass, Fertigung und Montage aus einer Hand.
+        </p>
+        <div class="mt-10 pt-6 border-t border-stone-700/40 flex flex-wrap gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300">Keramik</span>
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300">Granit</span>
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300" data-de="Naturstein" data-en="Natural stone">Naturstein</span>
+        </div>
+      </article>
+
+      <!-- Service 2 -->
+      <article class="group relative overflow-hidden rounded-sm border border-stone-700/40 bg-stone-900/40 backdrop-blur-sm p-8 lg:p-10 transition-transform duration-500 hover:-translate-y-1 reveal" style="transition-timing-function: var(--ease-smooth);">
+        <div class="flex items-start justify-between mb-20">
+          <div class="text-xs tracking-[0.2em] text-stone-400 uppercase">02</div>
+          <div class="w-14 h-14 rounded-full border border-bronze/40 flex items-center justify-center text-bronze-light">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l9 4-9 4-9-4 9-4zM3 10l9 4 9-4M3 14l9 4 9-4"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="font-display text-3xl text-stone-50 mb-4" data-de="Lieferung & Montage" data-en="Delivery & installation">Lieferung & Montage</h3>
+        <p class="text-stone-300 text-[0.95rem] leading-[1.8]"
+           data-de="Termingerechte Lieferung, millimetergenaue Montage — ohne Spuren, ohne Kompromisse, direkt zu Ihnen nach Hause."
+           data-en="On-time delivery, millimetre-precise installation — no traces, no compromises, straight to your home.">
+          Termingerechte Lieferung, millimetergenaue Montage — ohne Spuren, ohne Kompromisse, direkt zu Ihnen nach Hause.
+        </p>
+        <div class="mt-10 pt-6 border-t border-stone-700/40 flex flex-wrap gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300" data-de="Aufmass" data-en="Measuring">Aufmass</span>
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300">Logistik</span>
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300" data-de="Installation" data-en="Installation">Installation</span>
+        </div>
+      </article>
+
+      <!-- Service 3 -->
+      <article class="group relative overflow-hidden rounded-sm border border-stone-700/40 bg-stone-900/40 backdrop-blur-sm p-8 lg:p-10 transition-transform duration-500 hover:-translate-y-1 reveal md:col-span-2 lg:col-span-1" style="transition-timing-function: var(--ease-smooth);">
+        <div class="flex items-start justify-between mb-20">
+          <div class="text-xs tracking-[0.2em] text-stone-400 uppercase">03</div>
+          <div class="w-14 h-14 rounded-full border border-bronze/40 flex items-center justify-center text-bronze-light">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-8h6v8"/>
+            </svg>
+          </div>
+        </div>
+        <h3 class="font-display text-3xl text-stone-50 mb-4" data-de="Innenarchitektur" data-en="Interior architecture">Innenarchitektur</h3>
+        <p class="text-stone-300 text-[0.95rem] leading-[1.8]"
+           data-de="Beratung zu Raumgestaltung und Materialisierung. Wir denken den Stein in den ganzen Raum hinein."
+           data-en="Consultation on space design and materialisation. We think the stone through the whole room.">
+          Beratung zu Raumgestaltung und Materialisierung. Wir denken den Stein in den ganzen Raum hinein.
+        </p>
+        <div class="mt-10 pt-6 border-t border-stone-700/40 flex flex-wrap gap-2 text-xs">
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300" data-de="Beratung" data-en="Consulting">Beratung</span>
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300" data-de="Konzept" data-en="Concept">Konzept</span>
+          <span class="px-3 py-1 rounded-full bg-stone-800/60 text-stone-300" data-de="Raumgestaltung" data-en="Space design">Raumgestaltung</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ MATERIALS ═══════════════════════════════════════════ -->
+<section id="materials" class="relative py-28 lg:py-40 bg-stone-field grain overflow-hidden">
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 items-end mb-20 reveal">
+      <div class="lg:col-span-7">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="divider-line"></span>
+          <span class="eyebrow" data-de="Materialien" data-en="Materials">Materialien</span>
+        </div>
+        <h2 class="text-4xl lg:text-6xl text-stone-900">
+          <span data-de="Drei Oberflächen." data-en="Three surfaces.">Drei Oberflächen.</span><br/>
+          <em class="italic text-bronze" data-de="Unendliche Unikate." data-en="Infinite one-offs.">Unendliche Unikate.</em>
+        </h2>
+      </div>
+      <div class="lg:col-span-5 text-stone-700 max-w-md"
+           data-de="Jede Platte wird von uns persönlich ausgesucht — im Showroom oder direkt beim Block. Ihre Küche verdient den einen Stein, den sonst niemand hat."
+           data-en="Every slab is personally chosen by us — in the showroom or straight from the block. Your kitchen deserves the one stone no-one else has.">
+        Jede Platte wird von uns persönlich ausgesucht — im Showroom oder direkt beim Block. Ihre Küche verdient den einen Stein, den sonst niemand hat.
+      </div>
+    </div>
+
+    <!-- Asymmetric grid -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-5 lg:gap-6">
+
+      <figure class="group md:col-span-4 img-treat rounded-sm reveal" style="aspect-ratio: 16/10; box-shadow: var(--shadow-card);">
+        <img src="https://placehold.co/1280x800/2b2620/8b6f47?text=Granit" alt="Granit"/>
+        <figcaption class="absolute left-6 bottom-5 z-10 text-stone-50">
+          <div class="eyebrow text-stone-200">01 · Granit</div>
+          <div class="font-display text-3xl lg:text-4xl mt-1">Nero Assoluto</div>
+          <div class="text-sm text-stone-300 mt-1" data-de="Vulkanisch · zeitlos · hart" data-en="Volcanic · timeless · hard">Vulkanisch · zeitlos · hart</div>
+        </figcaption>
+      </figure>
+
+      <figure class="group md:col-span-2 img-treat rounded-sm reveal" style="aspect-ratio: 16/10; box-shadow: var(--shadow-card);">
+        <img src="https://placehold.co/640x400/8b6f47/ffffff?text=Keramik" alt="Keramik"/>
+        <figcaption class="absolute left-5 bottom-5 z-10 text-stone-50">
+          <div class="eyebrow text-stone-200">02</div>
+          <div class="font-display text-2xl mt-1">Keramik</div>
+        </figcaption>
+      </figure>
+
+      <figure class="group md:col-span-2 img-treat rounded-sm reveal" style="aspect-ratio: 16/10; box-shadow: var(--shadow-card);">
+        <img src="https://placehold.co/640x400/d4c9b5/2b2620?text=Marmor" alt="Marmor"/>
+        <figcaption class="absolute left-5 bottom-5 z-10 text-stone-900">
+          <div class="eyebrow">03</div>
+          <div class="font-display text-2xl mt-1">Marmor</div>
+        </figcaption>
+      </figure>
+
+      <figure class="group md:col-span-4 img-treat rounded-sm reveal" style="aspect-ratio: 16/10; box-shadow: var(--shadow-card);">
+        <img src="https://placehold.co/1280x800/524029/f5f1ea?text=Quarzit" alt="Quarzit"/>
+        <figcaption class="absolute left-6 bottom-5 z-10 text-stone-50">
+          <div class="eyebrow text-stone-200" data-de="04 · Naturstein" data-en="04 · Natural stone">04 · Naturstein</div>
+          <div class="font-display text-3xl lg:text-4xl mt-1">Quarzit & Travertin</div>
+          <div class="text-sm text-stone-300 mt-1" data-de="Lebendige Maserung · warme Präsenz" data-en="Living veining · warm presence">Lebendige Maserung · warme Präsenz</div>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHY US ═══════════════════════════════════════════ -->
+<section id="why" class="relative py-28 lg:py-40 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl mb-20 reveal">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="divider-line"></span>
+        <span class="eyebrow" data-de="Warum wir" data-en="Why us">Warum wir</span>
+      </div>
+      <h2 class="text-4xl lg:text-6xl text-stone-900">
+        <span data-de="Vier Gründe," data-en="Four reasons,">Vier Gründe,</span>
+        <em class="italic text-bronze" data-de="ein Versprechen." data-en="one promise.">ein Versprechen.</em>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-px bg-[rgba(28,25,23,0.08)] border border-[rgba(28,25,23,0.08)]">
+
+      <div class="bg-cream p-10 lg:p-14 reveal">
+        <div class="flex items-center gap-4 mb-5">
+          <span class="font-display text-bronze text-2xl">01</span>
+          <span class="h-px flex-1 bg-[rgba(28,25,23,0.1)]"></span>
+        </div>
+        <h3 class="font-display text-2xl lg:text-3xl text-stone-900 mb-4" data-de="Langjährige Erfahrung" data-en="Decades of experience">Langjährige Erfahrung</h3>
+        <p class="text-stone-700/90 max-w-md"
+           data-de="Ein Team aus Fachspezialisten, das die Branche von Grund auf kennt — mit Jahrzehnten an gemeinsamem Handwerk."
+           data-en="A team of specialists who know the trade inside out — with decades of shared craft.">
+          Ein Team aus Fachspezialisten, das die Branche von Grund auf kennt — mit Jahrzehnten an gemeinsamem Handwerk.
+        </p>
+      </div>
+
+      <div class="bg-cream p-10 lg:p-14 reveal">
+        <div class="flex items-center gap-4 mb-5">
+          <span class="font-display text-bronze text-2xl">02</span>
+          <span class="h-px flex-1 bg-[rgba(28,25,23,0.1)]"></span>
+        </div>
+        <h3 class="font-display text-2xl lg:text-3xl text-stone-900 mb-4" data-de="Präzision als Prinzip" data-en="Precision as principle">Präzision als Prinzip</h3>
+        <p class="text-stone-700/90 max-w-md"
+           data-de="Jeder Schnitt, jede Fuge, jede Kante. Wir arbeiten auf Millimeter — weil ein Stein keinen zweiten Versuch erlaubt."
+           data-en="Every cut, every joint, every edge. We work to the millimetre — because stone does not allow a second try.">
+          Jeder Schnitt, jede Fuge, jede Kante. Wir arbeiten auf Millimeter — weil ein Stein keinen zweiten Versuch erlaubt.
+        </p>
+      </div>
+
+      <div class="bg-cream p-10 lg:p-14 reveal">
+        <div class="flex items-center gap-4 mb-5">
+          <span class="font-display text-bronze text-2xl">03</span>
+          <span class="h-px flex-1 bg-[rgba(28,25,23,0.1)]"></span>
+        </div>
+        <h3 class="font-display text-2xl lg:text-3xl text-stone-900 mb-4" data-de="Kompromisslose Qualität" data-en="Uncompromising quality">Kompromisslose Qualität</h3>
+        <p class="text-stone-700/90 max-w-md"
+           data-de="Wir liefern nur, was wir selbst in unsere eigene Küche einbauen würden. Kein Kompromiss, keine Ausreden."
+           data-en="We only deliver what we would install in our own kitchen. No compromise, no excuses.">
+          Wir liefern nur, was wir selbst in unsere eigene Küche einbauen würden. Kein Kompromiss, keine Ausreden.
+        </p>
+      </div>
+
+      <div class="bg-cream p-10 lg:p-14 reveal">
+        <div class="flex items-center gap-4 mb-5">
+          <span class="font-display text-bronze text-2xl">04</span>
+          <span class="h-px flex-1 bg-[rgba(28,25,23,0.1)]"></span>
+        </div>
+        <h3 class="font-display text-2xl lg:text-3xl text-stone-900 mb-4" data-de="Persönliche Betreuung" data-en="Personal attention">Persönliche Betreuung</h3>
+        <p class="text-stone-700/90 max-w-md"
+           data-de="Vom ersten Gespräch bis zur finalen Abnahme begleitet Sie ein fester Ansprechpartner — keine Hotline, keine Weiterreichung."
+           data-en="From first conversation to final handover, one dedicated contact — no hotline, no hand-offs.">
+          Vom ersten Gespräch bis zur finalen Abnahme begleitet Sie ein fester Ansprechpartner — keine Hotline, keine Weiterreichung.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ CONTACT ═══════════════════════════════════════════ -->
+<section id="contact" class="relative py-28 lg:py-40 bg-basalt-field grain text-stone-50 overflow-hidden">
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-16">
+
+      <div class="lg:col-span-5 reveal">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="divider-line"></span>
+          <span class="eyebrow" data-de="Kontakt" data-en="Contact">Kontakt</span>
+        </div>
+        <h2 class="text-4xl lg:text-6xl text-stone-50">
+          <span data-de="Sprechen wir" data-en="Let's talk">Sprechen wir</span><br/>
+          <em class="italic text-bronze-light" data-de="über Ihre Küche." data-en="about your kitchen.">über Ihre Küche.</em>
+        </h2>
+        <p class="mt-8 text-stone-300 max-w-md"
+           data-de="Beschreiben Sie uns Ihr Projekt — wir melden uns persönlich mit einer unverbindlichen Einschätzung und Empfehlung."
+           data-en="Describe your project — we will get back to you personally with a non-binding assessment and recommendation.">
+          Beschreiben Sie uns Ihr Projekt — wir melden uns persönlich mit einer unverbindlichen Einschätzung und Empfehlung.
+        </p>
+
+        <dl class="mt-14 space-y-8">
+          <div class="flex items-start gap-5">
+            <div class="w-11 h-11 rounded-full border border-bronze/40 flex items-center justify-center text-bronze-light shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <dt class="eyebrow text-stone-400" data-de="Standort" data-en="Location">Standort</dt>
+              <dd class="font-display text-xl text-stone-50 mt-1">Seuzach, Zürich</dd>
+              <dd class="text-sm text-stone-400" data-de="Schweiz" data-en="Switzerland">Schweiz</dd>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-5">
+            <div class="w-11 h-11 rounded-full border border-bronze/40 flex items-center justify-center text-bronze-light shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            </div>
+            <div>
+              <dt class="eyebrow text-stone-400">E-Mail</dt>
+              <dd class="font-display text-xl text-stone-50 mt-1">info@jk-natursteine.ch</dd>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-5">
+            <div class="w-11 h-11 rounded-full border border-bronze/40 flex items-center justify-center text-bronze-light shrink-0">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            </div>
+            <div>
+              <dt class="eyebrow text-stone-400" data-de="Ansprechpartner" data-en="Contact person">Ansprechpartner</dt>
+              <dd class="font-display text-xl text-stone-50 mt-1">Jimmy Palacios</dd>
+              <dd class="text-sm text-stone-400" data-de="Geschäftsführer" data-en="CEO">Geschäftsführer</dd>
+            </div>
+          </div>
+        </dl>
+      </div>
+
+      <!-- Contact Form -->
+      <form class="lg:col-span-7 bg-cream text-stone-900 p-8 lg:p-12 rounded-sm reveal" style="box-shadow: var(--shadow-floating);" onsubmit="event.preventDefault(); this.querySelector('button[type=submit]').innerText='Danke — wir melden uns.';">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div>
+            <label class="eyebrow block mb-2" data-de="Vorname" data-en="First name">Vorname</label>
+            <input type="text" class="field" required placeholder="Max"/>
+          </div>
+          <div>
+            <label class="eyebrow block mb-2" data-de="Nachname" data-en="Last name">Nachname</label>
+            <input type="text" class="field" required placeholder="Muster"/>
+          </div>
+          <div>
+            <label class="eyebrow block mb-2">E-Mail</label>
+            <input type="email" class="field" required placeholder="max@beispiel.ch"/>
+          </div>
+          <div>
+            <label class="eyebrow block mb-2" data-de="Telefon" data-en="Phone">Telefon</label>
+            <input type="tel" class="field" placeholder="+41 ..."/>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="eyebrow block mb-2" data-de="Interessiertes Material" data-en="Material of interest">Interessiertes Material</label>
+            <select class="field" required>
+              <option>Granit</option>
+              <option>Keramik</option>
+              <option>Marmor</option>
+              <option data-de="Quarzit / Naturstein" data-en="Quartzite / natural stone">Quarzit / Naturstein</option>
+              <option data-de="Beratung erwünscht" data-en="Advice requested">Beratung erwünscht</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="eyebrow block mb-2" data-de="Ihr Projekt" data-en="Your project">Ihr Projekt</label>
+            <textarea rows="5" class="field resize-none" placeholder="Erzählen Sie uns kurz von Ihrer Küche, Ihren Massen und Ihren Wünschen …" required></textarea>
+          </div>
+        </div>
+        <div class="mt-8 flex flex-wrap items-center justify-between gap-5">
+          <p class="text-xs text-stone-500 max-w-xs"
+             data-de="Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung Ihrer Anfrage zu."
+             data-en="By submitting, you agree to the processing of your data for the purpose of handling your request.">
+            Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben zur Bearbeitung Ihrer Anfrage zu.
+          </p>
+          <button type="submit" class="btn btn-primary" data-de="Anfrage senden" data-en="Send request">
+            Anfrage senden
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════ FOOTER ═══════════════════════════════════════════ -->
+<footer class="bg-stone-900 text-stone-300 pt-20 pb-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 pb-16 border-b border-stone-700/40">
+      <div class="lg:col-span-5">
+        <a href="#top" class="flex items-center gap-3">
+          <div class="w-10 h-10 flex items-center justify-center rounded-full border border-bronze text-stone-50">
+            <span class="font-display text-xl leading-none">JK</span>
+          </div>
+          <div class="leading-tight">
+            <div class="font-display text-xl text-stone-50">Natursteine GmbH</div>
+            <div class="text-[0.62rem] tracking-[0.25em] uppercase text-stone-500 -mt-0.5">Seit 2021 · Seuzach</div>
+          </div>
+        </a>
+        <p class="mt-6 max-w-sm text-sm text-stone-400 leading-[1.8]"
+           data-de="Massgefertigte Küchenabdeckungen aus Keramik, Granit und Naturstein — Leidenschaft für Stein, seit 2021."
+           data-en="Bespoke kitchen countertops in ceramic, granite and natural stone — passion for stone, since 2021.">
+          Massgefertigte Küchenabdeckungen aus Keramik, Granit und Naturstein — Leidenschaft für Stein, seit 2021.
+        </p>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="eyebrow text-stone-500 mb-5" data-de="Seiten" data-en="Pages">Seiten</div>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#about"     class="nav-link" data-de="Über uns" data-en="About">Über uns</a></li>
+          <li><a href="#services"  class="nav-link" data-de="Leistungen" data-en="Services">Leistungen</a></li>
+          <li><a href="#materials" class="nav-link" data-de="Materialien" data-en="Materials">Materialien</a></li>
+          <li><a href="#contact"   class="nav-link">Kontakt</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="eyebrow text-stone-500 mb-5" data-de="Leistungen" data-en="Services">Leistungen</div>
+        <ul class="space-y-3 text-sm">
+          <li>Granit</li>
+          <li>Keramik</li>
+          <li data-de="Naturstein" data-en="Natural stone">Naturstein</li>
+          <li data-de="Innenarchitektur" data-en="Interior architecture">Innenarchitektur</li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="eyebrow text-stone-500 mb-5">Kontakt</div>
+        <address class="not-italic text-sm space-y-1.5 text-stone-300">
+          <div>JK Natursteine GmbH</div>
+          <div>8472 Seuzach</div>
+          <div data-de="Zürich, Schweiz" data-en="Zurich, Switzerland">Zürich, Schweiz</div>
+          <div class="pt-3">info@jk-natursteine.ch</div>
+        </address>
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.linkedin.com/in/jk-natursteine-gmbh-4506b722b/" aria-label="LinkedIn" class="w-10 h-10 rounded-full border border-stone-700 flex items-center justify-center text-stone-400 hover:text-bronze hover:border-bronze transition-colors duration-300">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-8 flex flex-wrap items-center justify-between gap-4 text-xs text-stone-500">
+      <div>© <span id="year">2026</span> JK Natursteine GmbH · <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span></div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-bronze transition-colors" data-de="Impressum" data-en="Imprint">Impressum</a>
+        <a href="datenschutz.html" class="hover:text-bronze transition-colors" data-de="Datenschutz" data-en="Privacy">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════ JS ═══════════════════════════════════════════ -->
+<script>
+  // Language toggle
+  const langButtons = document.querySelectorAll('.lang-toggle button');
+  const setLang = (lang) => {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-de]').forEach(el => {
+      const txt = el.getAttribute('data-' + lang);
+      if (txt != null) {
+        // preserve nested markup only if innerHTML is simple text node
+        if (el.children.length === 0) el.textContent = txt;
+        else {
+          // find first text node and replace it
+          for (const node of el.childNodes) {
+            if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+              node.textContent = txt;
+              break;
+            }
+          }
+        }
+      }
+    });
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  };
+  langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Dynamic year
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<!-- Vercel Web Analytics — auto-served by Vercel when Analytics is enabled in the project -->
+<script>
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+
+<!-- Vercel Speed Insights — Core Web Vitals -->
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</body>
+</html>
