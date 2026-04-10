@@ -240,6 +240,88 @@
   .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
   .nav-link:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; border-radius: 2px; }
 
+  /* ——— Mobile menu ——— */
+  .menu-toggle {
+    position: relative;
+    width: 44px; height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    transition: background-color 240ms var(--ease-smooth);
+  }
+  .menu-toggle:hover { background: rgba(139,111,71,0.08); }
+  .menu-toggle:focus-visible { outline: 2px solid var(--bronze); outline-offset: 2px; }
+  .menu-toggle .bars { position: relative; width: 22px; height: 14px; }
+  .menu-toggle .bars span {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1.5px;
+    background: var(--basalt);
+    border-radius: 1px;
+    transition: transform 420ms var(--ease-spring), opacity 200ms var(--ease-smooth);
+  }
+  .menu-toggle .bars span:nth-child(1) { top: 0; }
+  .menu-toggle .bars span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+  .menu-toggle .bars span:nth-child(3) { bottom: 0; }
+  .menu-toggle[aria-expanded="true"] .bars span:nth-child(1) {
+    transform: translateY(6.25px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] .bars span:nth-child(2) {
+    opacity: 0;
+    transform: translateY(-50%) scaleX(0);
+  }
+  .menu-toggle[aria-expanded="true"] .bars span:nth-child(3) {
+    transform: translateY(-6.25px) rotate(-45deg);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 76px; left: 0; right: 0;
+    z-index: 40;
+    background: rgba(250,248,245,0.97);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 380ms var(--ease-smooth), opacity 240ms var(--ease-smooth);
+  }
+  .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-menu nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    font-size: 1.05rem;
+    color: var(--basalt);
+    border-bottom: 1px solid var(--line);
+    transition: color 200ms var(--ease-smooth), background-color 200ms var(--ease-smooth);
+  }
+  .mobile-menu nav a::after {
+    content: "→";
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: var(--bronze);
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 240ms var(--ease-smooth), transform 240ms var(--ease-smooth);
+  }
+  .mobile-menu nav a:hover,
+  .mobile-menu nav a:focus-visible {
+    color: var(--bronze-dark);
+    background: rgba(139,111,71,0.05);
+    outline: none;
+  }
+  .mobile-menu nav a:hover::after,
+  .mobile-menu nav a:focus-visible::after { opacity: 1; transform: translateX(0); }
+  body.menu-open { overflow: hidden; }
+
   /* ——— Lang toggle ——— */
   .lang-toggle button {
     padding: 4px 10px;
@@ -331,7 +413,7 @@
     </a>
 
     <!-- Nav -->
-    <nav class="hidden lg:flex items-center gap-10 text-sm text-stone-800">
+    <nav class="hidden lg:flex items-center gap-10 text-sm text-stone-800 whitespace-nowrap">
       <a href="#about"     class="nav-link" data-de="Über uns"     data-en="About">Über uns</a>
       <a href="#services"  class="nav-link" data-de="Leistungen"   data-en="Services">Leistungen</a>
       <a href="#materials" class="nav-link" data-de="Materialien"  data-en="Materials">Materialien</a>
@@ -347,6 +429,30 @@
       </div>
       <a href="#contact" class="btn btn-primary hidden md:inline-flex" data-de="Offerte anfordern" data-en="Request a Quote">
         Offerte anfordern
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button id="menuToggle" class="menu-toggle lg:hidden" aria-expanded="false" aria-controls="mobileMenu" aria-label="Menü öffnen">
+        <span class="bars" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="mobile-menu lg:hidden" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#about"     data-de="Über uns"    data-en="About">Über uns</a>
+      <a href="#services"  data-de="Leistungen"  data-en="Services">Leistungen</a>
+      <a href="#materials" data-de="Materialien" data-en="Materials">Materialien</a>
+      <a href="#why"       data-de="Warum wir"   data-en="Why us">Warum wir</a>
+      <a href="#contact"   data-de="Kontakt"     data-en="Contact">Kontakt</a>
+    </nav>
+    <div class="px-6 py-5 flex items-center justify-between gap-4 border-t border-[rgba(28,25,23,0.06)]">
+      <div class="lang-toggle flex items-center gap-1">
+        <button data-lang="de" class="active">DE</button>
+        <span class="text-stone-300">/</span>
+        <button data-lang="en">EN</button>
+      </div>
+      <a href="#contact" class="btn btn-primary inline-flex" data-de="Offerte" data-en="Quote">
+        Offerte
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -953,6 +1059,29 @@
     langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   };
   langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const setMenu = (open) => {
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.setAttribute('aria-label', open ? 'Menü schliessen' : 'Menü öffnen');
+    mobileMenu.classList.toggle('open', open);
+    mobileMenu.setAttribute('aria-hidden', String(!open));
+    document.body.classList.toggle('menu-open', open);
+  };
+  menuToggle.addEventListener('click', () => {
+    setMenu(menuToggle.getAttribute('aria-expanded') !== 'true');
+  });
+  mobileMenu.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => setMenu(false));
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') setMenu(false);
+  });
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+    if (e.matches) setMenu(false);
+  });
 
   // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
