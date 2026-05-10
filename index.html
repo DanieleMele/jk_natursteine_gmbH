@@ -1263,6 +1263,66 @@
       else if (e.key === 'ArrowRight') next();
       else if (e.key === 'ArrowLeft')  prev();
     });
+
+    // Touch swipe (mobile): drag image with finger, commit on threshold or fast flick
+    const figureEl = lb.querySelector('.lb-stage');
+    if (figureEl) {
+      let sx = 0, sy = 0, st = 0, dragging = false, dx = 0, axis = null;
+
+      figureEl.addEventListener('touchstart', (e) => {
+        if (images.length < 2 || e.touches.length !== 1) return;
+        sx = e.touches[0].clientX;
+        sy = e.touches[0].clientY;
+        st = Date.now();
+        dragging = true;
+        dx = 0;
+        axis = null;
+        stage.style.transition = 'none';
+      }, { passive: true });
+
+      figureEl.addEventListener('touchmove', (e) => {
+        if (!dragging) return;
+        const cx = e.touches[0].clientX - sx;
+        const cy = e.touches[0].clientY - sy;
+        if (axis === null && (Math.abs(cx) > 8 || Math.abs(cy) > 8)) {
+          axis = Math.abs(cx) > Math.abs(cy) ? 'x' : 'y';
+          if (axis === 'y') {
+            dragging = false;
+            stage.style.transition = '';
+            stage.style.transform = '';
+            stage.style.opacity = '';
+            return;
+          }
+        }
+        if (axis === 'x') {
+          e.preventDefault();
+          dx = cx;
+          const fade = 1 - Math.min(Math.abs(dx) / 500, 0.45);
+          stage.style.transform = `translate(${dx}px, 0)`;
+          stage.style.opacity = String(fade);
+        }
+      }, { passive: false });
+
+      function endSwipe() {
+        if (!dragging) return;
+        dragging = false;
+        const elapsed = Date.now() - st;
+        const velocity = Math.abs(dx) / Math.max(elapsed, 1);
+        const threshold = Math.min(window.innerWidth * 0.2, 110);
+        const flick = velocity > 0.45 && Math.abs(dx) > 30;
+        const commit = Math.abs(dx) >= threshold || flick;
+
+        stage.style.transition = '';
+        stage.style.transform = '';
+        stage.style.opacity = '';
+
+        if (commit) {
+          if (dx < 0) next(); else prev();
+        }
+      }
+      figureEl.addEventListener('touchend',    endSwipe, { passive: true });
+      figureEl.addEventListener('touchcancel', endSwipe, { passive: true });
+    }
   })();
 </script>
 
