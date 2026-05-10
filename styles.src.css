@@ -387,6 +387,30 @@ body.menu-open { overflow: hidden; }
 /* ——— Hero num ——— */
 .hero-num { font-variant-numeric: tabular-nums; }
 
+/* ——— Mobile landscape (short viewport, wide aspect) ——— */
+@media (orientation: landscape) and (max-height: 540px) {
+  /* Side-by-side hero so the wide aspect is used instead of forcing tall scrolling */
+  .hero-grid {
+    grid-template-columns: 1.15fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .hero-img-frame {
+    aspect-ratio: auto !important;
+    max-height: 78vh;
+    height: 78vh;
+  }
+  /* Floating decorations are clutter at landscape phone heights */
+  .hero-floating-thumb,
+  .hero-floating-card {
+    display: none !important;
+  }
+  /* About-section stacked images would dominate vertical space; hide like portrait */
+  .about-img-stack {
+    display: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

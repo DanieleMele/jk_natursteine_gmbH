@@ -194,7 +194,7 @@
   </svg>
 
   <div class="relative max-w-7xl mx-auto px-6 lg:px-10 pt-20 lg:pt-28 pb-24 lg:pb-32">
-    <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
+    <div class="hero-grid grid lg:grid-cols-12 gap-12 lg:gap-16 items-end">
 
       <div class="lg:col-span-7 reveal">
         <div class="flex items-center gap-3 mb-8">
@@ -243,7 +243,7 @@
 
       <!-- Hero image composition -->
       <div class="lg:col-span-5 relative reveal">
-        <div class="img-treat rounded-sm shadow-2xl" style="box-shadow: var(--shadow-floating); aspect-ratio: 4/5;">
+        <div class="hero-img-frame img-treat rounded-sm shadow-2xl" style="box-shadow: var(--shadow-floating); aspect-ratio: 4/5;">
           <picture>
             <source type="image/webp"
                     srcset="baseline/PHOTO-2026-05-09-08-20-39-640.webp 640w, baseline/PHOTO-2026-05-09-08-20-39-960.webp 960w, baseline/PHOTO-2026-05-09-08-20-39.webp 1600w"
@@ -258,7 +258,7 @@
         </div>
 
         <!-- Floating sub-image — material reference (Pietra Grey) -->
-        <div class="hidden sm:block absolute -bottom-10 -left-6 lg:-left-14 w-48 lg:w-56 img-treat rounded-sm" style="box-shadow: var(--shadow-floating); aspect-ratio: 1;">
+        <div class="hero-floating-thumb hidden sm:block absolute -bottom-10 -left-6 lg:-left-14 w-48 lg:w-56 img-treat rounded-sm" style="box-shadow: var(--shadow-floating); aspect-ratio: 1;">
           <picture>
             <source type="image/webp" srcset="baseline/pietra-grey.webp" />
             <img src="baseline/pietra-grey.jpg" alt="Pietra Grey marble — Materialreferenz" loading="lazy" decoding="async" width="674" height="680" />
@@ -266,7 +266,7 @@
         </div>
 
         <!-- Small caption card -->
-        <div class="hidden md:flex absolute -top-6 -right-4 lg:-right-10 bg-white rounded-sm px-5 py-4 items-center gap-3 border border-[rgba(28,25,23,0.08)]" style="box-shadow: var(--shadow-card);">
+        <div class="hero-floating-card hidden md:flex absolute -top-6 -right-4 lg:-right-10 bg-white rounded-sm px-5 py-4 items-center gap-3 border border-[rgba(28,25,23,0.08)]" style="box-shadow: var(--shadow-card);">
           <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-bronze">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
           </div>
@@ -320,7 +320,7 @@
         </h2>
 
         <!-- Stacked images: stone reference in background, project floating in front -->
-        <div class="relative mt-12 hidden md:block">
+        <div class="about-img-stack relative mt-12 hidden md:block">
           <div class="img-treat rounded-sm w-4/5" style="box-shadow: var(--shadow-card); aspect-ratio: 4/5;">
             <picture>
               <source type="image/webp" srcset="baseline/example_ueber_uns.webp" />
