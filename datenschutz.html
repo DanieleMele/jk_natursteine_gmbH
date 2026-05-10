@@ -7,111 +7,17 @@
 <meta name="description" content="Datenschutzerklärung der JK Natursteine GmbH, Seuzach. Informationen zur Verarbeitung personenbezogener Daten gemäss Schweizer DSG und EU-DSGVO." />
 <meta name="robots" content="index,follow" />
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#1C1917">
 
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          stone: {
-            50:'#FAF8F5',100:'#F5F1EA',200:'#E8E1D4',300:'#D4C9B5',
-            400:'#A89680',500:'#8B6F47',600:'#6E5636',700:'#524029',
-            800:'#2B2620',900:'#1C1917',
-          },
-          bronze: { DEFAULT:'#8B6F47', light:'#A8895F', dark:'#6E5636' },
-        },
-        fontFamily: {
-          display: ['"Cormorant Garamond"','Georgia','serif'],
-          sans:    ['Inter','system-ui','sans-serif'],
-        },
-      },
-    },
-  };
-</script>
+<link rel="preload" as="font" href="fonts/inter.woff2" type="font/woff2" crossorigin>
+<link rel="preload" as="font" href="fonts/cormorant.woff2" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
 
 <style>
-  :root {
-    --bronze:#8B6F47; --bronze-dark:#6E5636; --basalt:#1C1917;
-    --cream:#FAF8F5; --limestone:#F5F1EA;
-    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
-    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-    --shadow-card:
-      0 1px 2px rgba(28,25,23,0.04),
-      0 6px 16px rgba(139,111,71,0.08),
-      0 18px 40px rgba(139,111,71,0.06);
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    background: var(--cream);
-    color: var(--basalt);
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-  }
-  .font-display { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; }
-  h1,h2,h3 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:500; }
-  h1 { letter-spacing:-0.035em; line-height:1.02; }
-  h2 { letter-spacing:-0.025em; line-height:1.15; }
-  h3 { letter-spacing:-0.015em; line-height:1.25; }
-
-  .eyebrow {
-    font-family:'Inter',sans-serif;
-    font-size:0.72rem; font-weight:500;
-    letter-spacing:0.22em; text-transform:uppercase;
-    color:var(--bronze);
-  }
-  .divider-line {
-    display:inline-block; width:48px; height:1px;
-    background:var(--bronze); vertical-align:middle; margin-right:14px;
-  }
-
-  .bg-stone-field {
-    background-color:var(--cream);
-    background-image:
-      radial-gradient(at 15% 5%,  rgba(139,111,71,0.10) 0px, transparent 45%),
-      radial-gradient(at 85% 0%,  rgba(139,111,71,0.05) 0px, transparent 50%);
-  }
-  .grain::before {
-    content:""; position:absolute; inset:0; pointer-events:none;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.55  0 0 0 0 0.43  0 0 0 0 0.28  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
-    opacity:0.06; mix-blend-mode:multiply;
-  }
-
-  .nav-link {
-    position:relative; padding:6px 0;
-    transition: color 200ms var(--ease-smooth);
-  }
-  .nav-link::after {
-    content:""; position:absolute; left:0; bottom:0; width:100%; height:1px;
-    background:var(--bronze); transform:scaleX(0); transform-origin:right;
-    transition:transform 400ms var(--ease-smooth);
-  }
-  .nav-link:hover { color:var(--bronze-dark); }
-  .nav-link:hover::after { transform:scaleX(1); transform-origin:left; }
-  .nav-link:focus-visible { outline:2px solid var(--bronze); outline-offset:4px; border-radius:2px; }
-
-  .btn {
-    display:inline-flex; align-items:center; gap:0.6rem;
-    padding:0.85rem 1.5rem; font-weight:500; font-size:0.9rem;
-    letter-spacing:0.02em; border-radius:999px;
-    transition: transform 260ms var(--ease-spring),
-                box-shadow 260ms var(--ease-smooth),
-                background-color 260ms var(--ease-smooth);
-  }
-  .btn-ghost {
-    background:transparent; color:var(--basalt);
-    border:1px solid rgba(28,25,23,0.2);
-  }
-  .btn-ghost:hover {
-    background:rgba(28,25,23,0.04); border-color:var(--bronze);
-    color:var(--bronze-dark); transform:translateY(-2px);
-  }
-  .btn-ghost:focus-visible { outline:2px solid var(--bronze); outline-offset:3px; }
-
   /* ——— Prose layout for legal text ——— */
   .prose-legal { max-width: 70ch; }
   .prose-legal h2 {
@@ -436,7 +342,7 @@
     <div class="text-xs text-stone-500">
       © <span id="year">2026</span> Daniele Mele Freelancer ·
       <a href="index.html" class="hover:text-bronze transition-colors">Startseite</a> ·
-      <a href="#" class="hover:text-bronze transition-colors">Impressum</a> ·
+      <a href="impressum.html" class="hover:text-bronze transition-colors">Impressum</a> ·
       <a href="datenschutz.html" class="hover:text-bronze transition-colors">Datenschutz</a>
     </div>
   </div>
