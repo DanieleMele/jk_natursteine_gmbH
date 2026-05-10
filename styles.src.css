@@ -387,6 +387,14 @@ body.menu-open { overflow: hidden; }
 /* ——— Hero num ——— */
 .hero-num { font-variant-numeric: tabular-nums; }
 
+/* ——— Tablet / narrow-desktop (single-column hero, taller than viewport otherwise) ——— */
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .hero-img-frame {
+    aspect-ratio: 16/11 !important;
+    max-height: 65vh;
+  }
+}
+
 /* ——— Mobile landscape (short viewport, wide aspect) ——— */
 @media (orientation: landscape) and (max-height: 540px) {
   /* Side-by-side hero so the wide aspect is used instead of forcing tall scrolling */
